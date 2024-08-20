@@ -19,3 +19,9 @@
         alert('home');
     </script>
 <?php $this->end(); ?>
+
+<ul>
+    <?php foreach($users as $user): ?>
+        <li><?= h($user->id) ?>: <?= h($user->firstName); ?></li>
+    <?php endforeach; ?>
+</ul>

@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\Datasource\ConnectionManager;
+use Cake\ORM\TableRegistry;
 
 /**
  * Home Controller
@@ -16,11 +18,13 @@ class HomeController extends AppController
             layout fica em templates/layout/nomeLayout
         */
 
+        $usersTable = TableRegistry::getTableLocator()->get('Users');
+        $users = $usersTable->find()->all();
         $name = 'Alexandre';
         $age = 41;
 
         // mandando as variaveis pra view Home/index
-        $this->set(compact('name', 'age'));
+        $this->set(compact('users', 'name', 'age'));
 
     }
 }
