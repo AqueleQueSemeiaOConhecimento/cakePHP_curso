@@ -31,7 +31,7 @@ class PostSeed extends AbstractSeed
             $title = $faker->sentence(5);
             $data['title'] = $title;
             $data['slug'] = strtolower(str_replace([' ', '.'], ['-', ''], $title));
-            $data['user_id'] = $faker->randomNumber(1,20);
+            $data['user_id'] = $faker->randomNumber(1, true);
             $data['content'] = $faker->paragraph(2);
             $table = $this->table('posts');
             $table->insert($data)->save();

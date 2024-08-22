@@ -29,6 +29,7 @@ class UserSeed extends AbstractSeed
             $data['firstName'] = $faker->firstName();
             $data['lastName'] = $faker->lastName();
             $data['email'] = $faker->unique()->email;
+            $data['status'] = true;
             $data['password'] = password_hash('123', PASSWORD_DEFAULT);
             $table = $this->table('users');
             $table->insert($data)->save();

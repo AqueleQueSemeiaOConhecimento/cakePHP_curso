@@ -25,7 +25,8 @@ class Post extends AbstractMigration
             'limit' => 150
         ]);
         $table->addColumn('user_id', 'integer', [
-            'null' => false
+            'null' => false,
+            'signed' => false,
         ]);
         $table->addColumn('content', 'text', [
             'null' => false

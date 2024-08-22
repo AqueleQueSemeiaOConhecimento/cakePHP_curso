@@ -21,7 +21,26 @@
 <?php $this->end(); ?>
 
 <ul>
-    <?php foreach($users as $user): ?>
-        <li><?= h($user->id) ?>: <?= h($user->firstName); ?></li>
+    
+    <?php foreach($posts as $post): ?>
+        <!-- <?php var_dump($post); ?> -->
+        <li><?= h($post->id) ?>: <?= h($post->title); ?> <?= h($post->author->firstName); ?></li>
+    <?php endforeach; ?>
+</ul>
+
+<hr>
+
+<ul>
+    <?php foreach($users2 as $user): ?>
+        <!-- <?php var_dump($user) ?> -->
+        <li><?= h($user->id); ?>: <?= h($user->firstName); ?> <?= count($user->posts); ?> </li>
+    <?php endforeach; ?>
+</ul>
+
+<hr>
+
+<ul>
+    <?php foreach($roles as $role): ?>
+        <?php var_dump($role); ?>
     <?php endforeach; ?>
 </ul>

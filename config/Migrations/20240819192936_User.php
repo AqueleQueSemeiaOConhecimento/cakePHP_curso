@@ -38,10 +38,7 @@ class User extends AbstractMigration
             'default' => 'CURRENT_TIMESTAMP',
             'update' => 'CURRENT_TIMESTAMP'
         ]);
-        $table->addColumn('status', 'boolean', [
-            'default' => 1,
-            'null' => false
-        ]);
+
         $table->addIndex('email', ['unique' => true]);
         
         $table->create();

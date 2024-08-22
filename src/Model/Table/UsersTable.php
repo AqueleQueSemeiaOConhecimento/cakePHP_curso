@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Datasource\RulesChecker as DatasourceRulesChecker;
 use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -102,7 +103,7 @@ class UsersTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules): RulesChecker
+    public function buildRules(DatasourceRulesChecker $rules): RulesChecker
     {
         $rules->add($rules->isUnique(['email']), ['errorField' => 'email']);
 

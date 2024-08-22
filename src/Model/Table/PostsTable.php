@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use Cake\Datasource\RulesChecker as DatasourceRulesChecker;
 use Cake\ORM\Query\SelectQuery;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -46,6 +47,8 @@ class PostsTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
+            // propertyName é o nome do campo com que a tabela faz o vinculo, no caso tabela Users
+            'propertyName' => 'author',
         ]);
     }
 
@@ -96,7 +99,7 @@ class PostsTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules): RulesChecker
+    public function buildRules(DatasourceRulesChecker $rules): RulesChecker
     {
         $rules->add($rules->existsIn(['user_id'], 'Users'), ['errorField' => 'user_id']);
 
