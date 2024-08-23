@@ -31,3 +31,5 @@ $this->start('css', function() {
 
 
 <?= $this->element('/paginator/simple') ?>
+
+<?= $this->Html->link('Login', ['controller' => 'Login', 'action' => 'logar'], ['class' => 'mybt_login', 'confirm' => 'Tem certeza']); ?>
