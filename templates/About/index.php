@@ -13,3 +13,21 @@ $this->start('css', function() {
 <?php $this->end() ?>
 
 <h2>About</h2>
+<div class="sorts">
+    <span class="sort">Organizar por: </span>
+    <span class="sort">
+        <?php echo $this->Paginator->sort('firstName', 'Nome') ?>
+    </span>
+    <span class="sort">
+        <?php echo $this->Paginator->sort('lastName', 'Sobrenome') ?>
+    </span>
+</div>
+
+<ul>
+    <?php foreach($users as $user): ?>
+        <li><?= $user->id ?>: <?= $user->firstName; ?> <?= $user->lastName ?></li>
+    <?php endforeach; ?>
+</ul>
+
+
+<?= $this->element('/paginator/simple') ?>
